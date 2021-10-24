@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1094579562066-3q04sgbvahq44o6ekjkqpd790o393ek0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1094579562066-3q04sgbvahq44o6ekjkqpd790o393ek0</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDpaEhXBE6l_ki71Q8mDfz5w2WGywKZW5Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1094579562066</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>mx.Equipo8.proyectoFinal-2</string>
+	<key>PROJECT_ID</key>
+	<string>lftequipo8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lftequipo8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1094579562066:ios:6904da4fb67ec2b64e618b</string>
+</dict>
+</plist>
