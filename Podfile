@@ -8,5 +8,6 @@ target 'proyectoFinal-2' do
   # Pods for proyectoFinal-2
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
+    pod 'Firebase/Storage'
 
 end

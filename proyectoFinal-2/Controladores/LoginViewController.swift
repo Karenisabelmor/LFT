@@ -7,7 +7,9 @@
 
 import UIKit
 import Firebase
-class LoginViewController: UIViewController {
+import FirebaseStorage
+class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    private let storage = Storage.storage().reference()
     var controlador = UsuarioControlador()
     @IBOutlet weak var Discord: UITextField!
     @IBOutlet weak var rango: UITextField!
@@ -60,6 +62,42 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func goToSignin(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "toSignIn", sender: self)
+    }
+    @IBAction func uploadProfilePicture(_ sender: UIButton) {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker,animated: true)
+        
+        
+    }
+    
+   
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{
+            return
+        }
+        
+        guard let imageData = image.pngData()else{
+            return
+        }
+       
+        storage.child("images/"+email.text!+".png").putData(imageData, metadata: nil, completion: {_, error in
+            guard error == nil else{
+                print("Failed to upload")
+                return
+            }
+        })
+        picker.dismiss(animated: true, completion: nil)
+    }
+
+   
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
+        picker.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

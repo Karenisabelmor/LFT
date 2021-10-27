@@ -40,14 +40,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="inicia Sesión" cornerStyle="medium">
+                                <buttonConfiguration key="configuration" style="plain" title="Inicia Sesión" cornerStyle="medium">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="0.10196078431372549" green="0.094117647058823528" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                     </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Xgb-n8-y84" kind="show" id="yqP-RE-TYW"/>
+                                    <segue destination="Xgb-n8-y84" kind="show" identifier="homeToSignIn" id="yqP-RE-TYW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="bzX-yg-79y">
@@ -179,8 +179,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="Q4N-bq-R7d">
-                                <rect key="frame" x="57" y="161" width="300" height="514"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="Q4N-bq-R7d">
+                                <rect key="frame" x="57" y="127" width="300" height="514"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KkT-jz-PMO">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
@@ -234,6 +234,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="inicia sesión"/>
+                                <connections>
+                                    <action selector="goToSignin:" destination="Qjy-Pv-Jdj" eventType="touchUpInside" id="gl9-nV-UeN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y69-nz-h4f">
                                 <rect key="frame" x="78" y="716" width="259" height="31"/>
@@ -247,6 +250,15 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="registerUser:" destination="Qjy-Pv-Jdj" eventType="touchUpInside" id="2c9-Cj-esn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z93-dE-Nwi">
+                                <rect key="frame" x="99" y="677" width="216" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Subir foto de perfil"/>
+                                <connections>
+                                    <action selector="uploadProfilePicture:" destination="Qjy-Pv-Jdj" eventType="touchUpInside" id="8My-OG-bl3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -267,11 +279,12 @@
                         <outlet property="rango" destination="3Cw-BV-vlU" id="vbf-hE-sJH"/>
                         <outlet property="usuario" destination="KkT-jz-PMO" id="9Q9-pW-y8s"/>
                         <segue destination="pbs-nB-sPa" kind="show" identifier="registerToFriends" id="Bcu-Ng-1f1"/>
+                        <segue destination="Xgb-n8-y84" kind="show" identifier="toSignIn" id="abw-aG-TlI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4F-17-a6k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1796" y="-556"/>
+            <point key="canvasLocation" x="1795.6521739130437" y="-556.47321428571422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4sp-Pc-UWH">
@@ -294,6 +307,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Bcu-Ng-1f1"/>
+        <segue reference="abw-aG-TlI"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="LFT" width="741" height="742"/>
