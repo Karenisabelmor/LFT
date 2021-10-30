@@ -15,6 +15,7 @@ struct Usuario: Decodable{
     var rango:String
     var usuario:String
     var id:String
+    var amigos:[String]
     init(discord:String,email:String,idJuego:String,pais:String,password:String,rango:String,usuario:String){
         self.discord = discord
         self.email = email
@@ -24,8 +25,9 @@ struct Usuario: Decodable{
         self.rango = rango
         self.usuario = usuario
         self.id = email
+        self.amigos = []
     }
-    init(discord:String,email:String,idJuego:String,pais:String,password:String,rango:String,usuario:String,id:String){
+    init(discord:String,email:String,idJuego:String,pais:String,password:String,rango:String,usuario:String,id:String,amigos:[String]){
         self.discord = discord
         self.email = email
         self.idJuego = idJuego
@@ -34,6 +36,7 @@ struct Usuario: Decodable{
         self.rango = rango
         self.usuario = usuario
         self.id = id
+        self.amigos = amigos
     }
     init(d:DocumentSnapshot){
         self.discord = d.get("discord") as? String ?? ""
@@ -44,5 +47,7 @@ struct Usuario: Decodable{
         self.rango = d.get("rango") as? String ?? ""
         self.usuario = d.get("usuario") as? String ?? ""
         self.id = d.documentID
+        self.amigos = d.get("amigos") as? [String] ?? []
     }
 }
+typealias Usuarios = [Usuario]

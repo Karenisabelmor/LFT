@@ -1,18 +1,17 @@
 //
-//  FriendsViewController.swift
+//  AgregarAmigosViewController.swift
 //  proyectoFinal-2
 //
-//  Created by Luis Alcantara on 24/10/21.
+//  Created by Luis Alcantara on 29/10/21.
 //
 
 import UIKit
-import Firebase
-class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, UISearchResultsUpdating{
-    
+
+class AgregarAmigosViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UISearchResultsUpdating {
     var datos = [Usuario]()
-    var controlador = UsuarioControlador()
-    @IBOutlet weak var friendsList: UITableView!
+    @IBOutlet weak var agregar: UITableView!
     var datosFiltrados = [Usuario]()
+    var controladorA = Agregar()
     let searchController = UISearchController(searchResultsController: nil)
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.searchBar.text! == "" {
@@ -25,25 +24,17 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
                 return(s.lowercased().contains(searchController.searchBar.text!.lowercased())) }
         }
         
-        self.friendsList.reloadData()
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        controlador.fetchFriends{ (resultado) in
-            switch resultado{
-            case .success(let listausuario):self.updateGUI(listaUsuarios:listausuario )
-            case .failure(let error):print("error")
-            }
-        }
+        self.agregar.reloadData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        friendsList.dataSource = self
-        controlador.fetchFriends{ (resultado) in
+        agregar.dataSource = self
+        controladorA.agregarAmigos{ (resultado) in
             switch resultado{
-            case .success(let listausuario):self.updateGUI(listaUsuarios:listausuario )
+            case .success(let listausuario): self.updateGUI(listaUsuarios:listausuario)
             case .failure(let error):print("error")
             }
+            
         }
         searchController.searchResultsUpdater = self
         //paso 7: controlar el background de los datos al momento de hacer la búsqueda
@@ -51,26 +42,22 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
         //Paso 8: manejar la barra de navegación durante la busuqeda
         searchController.hidesNavigationBarDuringPresentation = false
         //Paso 9: Instalar la barra de búsqueda en la cabecera de la tabla
-       friendsList.tableHeaderView = searchController.searchBar
-
-        // Do any additional setup after loading the view.
+       agregar.tableHeaderView = searchController.searchBar
     }
-    @IBAction func signOut(_ sender: UIBarButtonItem) {
-        let firebaseAuth = Auth.auth()
-        do {
-          try firebaseAuth.signOut()
-            navigationController?.popToRootViewController(animated: true)
-        } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
+    override func viewDidAppear(_ animated: Bool) {
+        controladorA.agregarAmigos{ (resultado) in
+            switch resultado{
+            case .success(let listausuario):self.updateGUI(listaUsuarios:listausuario )
+            case .failure(let error):print("error")
+            }
         }
-
     }
     func updateGUI(listaUsuarios: Usuarios){
         DispatchQueue.main.async {
             self.datos = listaUsuarios
             //paso 5: copiar el contenido del arreglo en el arreglo filtrad
             self.datosFiltrados = listaUsuarios
-            self.friendsList.reloadData()
+            self.agregar.reloadData()
         }
         
     }
@@ -82,14 +69,12 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = friendsList.dequeueReusableCell(withIdentifier: "zelda") as! AmigosTableViewCell
+        let cell = agregar.dequeueReusableCell(withIdentifier: "agregarAmigo") as! AgregarTableViewCell
         cell.usuario.text =  datosFiltrados[indexPath.row].usuario
         cell.profilePicture.image = UIImage(named: "LFT.png")
-        cell.rango.text = datosFiltrados[indexPath.row].rango
-        cell.discord.text = datosFiltrados[indexPath.row].discord
+        cell.rango.text =  datosFiltrados[indexPath.row].rango
         return cell
     }
-   
 
     /*
     // MARK: - Navigation
@@ -101,4 +86,16 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     */
 
+}
+extension AgregarAmigosViewController: TableUpdate{
+func ReloadTable() {
+    controladorA.agregarAmigos{ (resultado) in
+        switch resultado{
+        case .success(let listausuario): self.updateGUI(listaUsuarios:listausuario)
+        case .failure(let error):print("error")
+        }
+        
+    }
+    self.agregar.reloadData()
+}
 }

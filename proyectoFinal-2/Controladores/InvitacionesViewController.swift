@@ -1,18 +1,18 @@
 //
-//  FriendsViewController.swift
+//  InvitacionesViewController.swift
 //  proyectoFinal-2
 //
-//  Created by Luis Alcantara on 24/10/21.
+//  Created by Luis Alcantara on 29/10/21.
 //
 
 import UIKit
-import Firebase
-class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, UISearchResultsUpdating{
-    
+
+class InvitacionesViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UISearchResultsUpdating {
     var datos = [Usuario]()
     var controlador = UsuarioControlador()
-    @IBOutlet weak var friendsList: UITableView!
     var datosFiltrados = [Usuario]()
+    @IBOutlet weak var invitaciones: UITableView!
+    
     let searchController = UISearchController(searchResultsController: nil)
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.searchBar.text! == "" {
@@ -25,10 +25,10 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
                 return(s.lowercased().contains(searchController.searchBar.text!.lowercased())) }
         }
         
-        self.friendsList.reloadData()
+        self.invitaciones.reloadData()
     }
     override func viewDidAppear(_ animated: Bool) {
-        controlador.fetchFriends{ (resultado) in
+        controlador.fetchInvitaciones{ (resultado) in
             switch resultado{
             case .success(let listausuario):self.updateGUI(listaUsuarios:listausuario )
             case .failure(let error):print("error")
@@ -37,13 +37,13 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        friendsList.dataSource = self
-        controlador.fetchFriends{ (resultado) in
+        invitaciones.dataSource = self
+        controlador.fetchInvitaciones{ (resultado) in
             switch resultado{
-            case .success(let listausuario):self.updateGUI(listaUsuarios:listausuario )
+            case .success(let listausuario): self.updateGUI(listaUsuarios:listausuario )
             case .failure(let error):print("error")
             }
+            
         }
         searchController.searchResultsUpdater = self
         //paso 7: controlar el background de los datos al momento de hacer la búsqueda
@@ -51,26 +51,15 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
         //Paso 8: manejar la barra de navegación durante la busuqeda
         searchController.hidesNavigationBarDuringPresentation = false
         //Paso 9: Instalar la barra de búsqueda en la cabecera de la tabla
-       friendsList.tableHeaderView = searchController.searchBar
-
+       invitaciones.tableHeaderView = searchController.searchBar
         // Do any additional setup after loading the view.
-    }
-    @IBAction func signOut(_ sender: UIBarButtonItem) {
-        let firebaseAuth = Auth.auth()
-        do {
-          try firebaseAuth.signOut()
-            navigationController?.popToRootViewController(animated: true)
-        } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
-        }
-
     }
     func updateGUI(listaUsuarios: Usuarios){
         DispatchQueue.main.async {
             self.datos = listaUsuarios
             //paso 5: copiar el contenido del arreglo en el arreglo filtrad
             self.datosFiltrados = listaUsuarios
-            self.friendsList.reloadData()
+            self.invitaciones.reloadData()
         }
         
     }
@@ -82,15 +71,14 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = friendsList.dequeueReusableCell(withIdentifier: "zelda") as! AmigosTableViewCell
-        cell.usuario.text =  datosFiltrados[indexPath.row].usuario
+        let cell = invitaciones.dequeueReusableCell(withIdentifier: "invitacion") as! InvitacionesTableViewCell
+        cell.username.text =  datosFiltrados[indexPath.row].usuario
         cell.profilePicture.image = UIImage(named: "LFT.png")
         cell.rango.text = datosFiltrados[indexPath.row].rango
         cell.discord.text = datosFiltrados[indexPath.row].discord
+        cell.parentDelegate = self
         return cell
     }
-   
-
     /*
     // MARK: - Navigation
 
@@ -101,4 +89,15 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     */
 
+}
+extension InvitacionesViewController: ParentControllerDelegate{
+func requestReloadTable() {
+    controlador.fetchInvitaciones{ (resultado) in
+        switch resultado{
+        case .success(let listausuario):self.updateGUI(listaUsuarios:listausuario )
+        case .failure(let error):print("error")
+        }
+    }
+    self.invitaciones.reloadData()
+}
 }
