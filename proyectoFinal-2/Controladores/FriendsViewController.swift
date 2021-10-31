@@ -55,16 +55,7 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func signOut(_ sender: UIBarButtonItem) {
-        let firebaseAuth = Auth.auth()
-        do {
-          try firebaseAuth.signOut()
-            navigationController?.popToRootViewController(animated: true)
-        } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
-        }
-
-    }
+  
     func updateGUI(listaUsuarios: Usuarios){
         DispatchQueue.main.async {
             self.datos = listaUsuarios

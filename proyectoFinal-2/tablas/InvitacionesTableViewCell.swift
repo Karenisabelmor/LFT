@@ -14,6 +14,7 @@ class InvitacionesTableViewCell: UITableViewCell {
     let db = Firestore.firestore()
     var controlador = UsuarioControlador()
     var parentDelegate: ParentControllerDelegate?
+    var accionesUsuario = Usuario()
     var usuarioB:String = ""
     @IBOutlet weak var discord: UILabel!
     @IBOutlet weak var rango: UILabel!
@@ -41,6 +42,7 @@ class InvitacionesTableViewCell: UITableViewCell {
             else{
                 for document in querySnapshot!.documents{
                     var a = Usuario(d:document)
+                    self.accionesUsuario = a
                     self.usuarioB = a.email
                 }
                 let usuario = self.db.collection("usuarios").document(email!)
@@ -82,6 +84,18 @@ class InvitacionesTableViewCell: UITableViewCell {
                         }
                 
                 }
+                var amigosRecibe  = self.accionesUsuario.amigos
+                amigosRecibe.append(email!)
+                let segundoUsuario = self.db.collection("usuarios").document(self.accionesUsuario.email)
+                segundoUsuario.updateData([
+                    "amigos": amigosRecibe
+                ]) { err in
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    }
+                }
+                
+                
             }
         }
         

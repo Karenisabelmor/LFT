@@ -22,6 +22,7 @@
 		D1A4E468272CCA9400C93B90 /* AgregarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A4E467272CCA9400C93B90 /* AgregarTableViewCell.swift */; };
 		D1A4E46A272CCAA800C93B90 /* AgregarAmigosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A4E469272CCAA800C93B90 /* AgregarAmigosViewController.swift */; };
 		D1A4E46C272CCF6400C93B90 /* Agregar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A4E46B272CCF6400C93B90 /* Agregar.swift */; };
+		D1C27032272F4D0200A890B3 /* ConfiguracionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C27031272F4D0200A890B3 /* ConfiguracionViewController.swift */; };
 		D1C58D492725E98D003E7AEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1C58D482725E98D003E7AEE /* GoogleService-Info.plist */; };
 		D1C58D4B2725EA42003E7AEE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C58D4A2725EA42003E7AEE /* LoginViewController.swift */; };
 		D1C58D4D2725F573003E7AEE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C58D4C2725F573003E7AEE /* SignUpViewController.swift */; };
@@ -49,6 +50,7 @@
 		D1A4E467272CCA9400C93B90 /* AgregarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarTableViewCell.swift; sourceTree = "<group>"; };
 		D1A4E469272CCAA800C93B90 /* AgregarAmigosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarAmigosViewController.swift; sourceTree = "<group>"; };
 		D1A4E46B272CCF6400C93B90 /* Agregar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agregar.swift; sourceTree = "<group>"; };
+		D1C27031272F4D0200A890B3 /* ConfiguracionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguracionViewController.swift; sourceTree = "<group>"; };
 		D1C58D482725E98D003E7AEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1C58D4A2725EA42003E7AEE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D1C58D4C2725F573003E7AEE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				D1A4E459272C660100C93B90 /* MenuViewController.swift */,
 				D1A4E45B272C784E00C93B90 /* InvitacionesViewController.swift */,
 				D1A4E469272CCAA800C93B90 /* AgregarAmigosViewController.swift */,
+				D1C27031272F4D0200A890B3 /* ConfiguracionViewController.swift */,
 			);
 			path = Controladores;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				D1A4E45A272C660100C93B90 /* MenuViewController.swift in Sources */,
 				D1A4E45C272C784E00C93B90 /* InvitacionesViewController.swift in Sources */,
 				D1A4E468272CCA9400C93B90 /* AgregarTableViewCell.swift in Sources */,
+				D1C27032272F4D0200A890B3 /* ConfiguracionViewController.swift in Sources */,
 				D1645727272A271E00956D88 /* AmigosTableViewCell.swift in Sources */,
 				B3FCE70827237FD300D0D040 /* ViewController.swift in Sources */,
 				D1A4E45E272C786E00C93B90 /* InvitacionesTableViewCell.swift in Sources */,

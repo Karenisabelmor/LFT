@@ -27,6 +27,17 @@ struct Usuario: Decodable{
         self.id = email
         self.amigos = []
     }
+    init(){
+        self.discord = ""
+        self.email = ""
+        self.idJuego = ""
+        self.pais = ""
+        self.password = ""
+        self.rango = ""
+        self.usuario = ""
+        self.id = ""
+        self.amigos = []
+    }
     init(discord:String,email:String,idJuego:String,pais:String,password:String,rango:String,usuario:String,id:String,amigos:[String]){
         self.discord = discord
         self.email = email
