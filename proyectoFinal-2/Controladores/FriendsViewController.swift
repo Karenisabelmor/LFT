@@ -82,14 +82,19 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
    
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+            // Get the new view controller using segue.destination.
+            // Pass the selected object to the new view controller.
+            let siguiente = segue.destination as! PerfilAmigoViewController
+            let indice = self.friendsList.indexPathForSelectedRow?.row
+            //paso 12 usar datos filtrados
+            siguiente.user = datosFiltrados[indice!]
+        
     }
-    */
+    
 
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D80BBAF272F754F00AE7CEA /* unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D80BBAE272F754F00AE7CEA /* unknown.png */; };
+		8D80BBB2272F763B00AE7CEA /* unknown-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D80BBB1272F763B00AE7CEA /* unknown-2.png */; };
+		8D80BBB5272F78EB00AE7CEA /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D80BBB4272F78EB00AE7CEA /* PerfilViewController.swift */; };
+		8D80BBB8272F8ED800AE7CEA /* PerfilAmigoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D80BBB7272F8ED800AE7CEA /* PerfilAmigoViewController.swift */; };
 		B3FCE70427237FD300D0D040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCE70327237FD300D0D040 /* AppDelegate.swift */; };
 		B3FCE70627237FD300D0D040 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCE70527237FD300D0D040 /* SceneDelegate.swift */; };
 		B3FCE70827237FD300D0D040 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FCE70727237FD300D0D040 /* ViewController.swift */; };
@@ -32,6 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D80BBAE272F754F00AE7CEA /* unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unknown.png; path = ../../../Downloads/unknown.png; sourceTree = "<group>"; };
+		8D80BBB1272F763B00AE7CEA /* unknown-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unknown-2.png"; path = "../../../Downloads/unknown-2.png"; sourceTree = "<group>"; };
+		8D80BBB4272F78EB00AE7CEA /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
+		8D80BBB7272F8ED800AE7CEA /* PerfilAmigoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilAmigoViewController.swift; sourceTree = "<group>"; };
 		A2CBE4A7C616B0EC801B8D17 /* Pods_proyectoFinal_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_proyectoFinal_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37BB06C9AC5B852370CF59E /* Pods-proyectoFinal-2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proyectoFinal-2.debug.xcconfig"; path = "Target Support Files/Pods-proyectoFinal-2/Pods-proyectoFinal-2.debug.xcconfig"; sourceTree = "<group>"; };
 		B3FCE70027237FD300D0D040 /* proyectoFinal-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "proyectoFinal-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +101,8 @@
 		B3FCE70227237FD300D0D040 /* proyectoFinal-2 */ = {
 			isa = PBXGroup;
 			children = (
+				8D80BBB1272F763B00AE7CEA /* unknown-2.png */,
+				8D80BBAE272F754F00AE7CEA /* unknown.png */,
 				D1645725272A270700956D88 /* tablas */,
 				D1C58D512725F97B003E7AEE /* modelos */,
 				D1C58D472725E887003E7AEE /* Controladores */,
@@ -136,6 +146,8 @@
 				D1A4E45B272C784E00C93B90 /* InvitacionesViewController.swift */,
 				D1A4E469272CCAA800C93B90 /* AgregarAmigosViewController.swift */,
 				D1C27031272F4D0200A890B3 /* ConfiguracionViewController.swift */,
+				8D80BBB4272F78EB00AE7CEA /* PerfilViewController.swift */,
+				8D80BBB7272F8ED800AE7CEA /* PerfilAmigoViewController.swift */,
 			);
 			path = Controladores;
 			sourceTree = "<group>";
@@ -220,9 +232,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3FCE71027237FD400D0D040 /* LaunchScreen.storyboard in Resources */,
+				8D80BBAF272F754F00AE7CEA /* unknown.png in Resources */,
 				D1C58D492725E98D003E7AEE /* GoogleService-Info.plist in Resources */,
 				B3FCE70D27237FD400D0D040 /* Assets.xcassets in Resources */,
 				B3FCE70B27237FD300D0D040 /* Main.storyboard in Resources */,
+				8D80BBB2272F763B00AE7CEA /* unknown-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,11 +301,13 @@
 				D1A4E46A272CCAA800C93B90 /* AgregarAmigosViewController.swift in Sources */,
 				D1C58D552725FC35003E7AEE /* UsuarioControlador.swift in Sources */,
 				D1C58D532725F9F6003E7AEE /* Usuario.swift in Sources */,
+				8D80BBB5272F78EB00AE7CEA /* PerfilViewController.swift in Sources */,
 				D1A4E460272C8ABC00C93B90 /* Invitaciones.swift in Sources */,
 				B3FCE70427237FD300D0D040 /* AppDelegate.swift in Sources */,
 				B3FCE70627237FD300D0D040 /* SceneDelegate.swift in Sources */,
 				D1C58D4F2725F59F003E7AEE /* FriendsViewController.swift in Sources */,
 				D1C58D4D2725F573003E7AEE /* SignUpViewController.swift in Sources */,
+				8D80BBB8272F8ED800AE7CEA /* PerfilAmigoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
