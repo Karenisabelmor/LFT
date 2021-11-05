@@ -9,15 +9,32 @@ import UIKit
 import Firebase
 
 class PerfilAmigoViewController: UIViewController {
+    private let storage = Storage.storage().reference()
     @IBOutlet weak var usuario: UILabel!
     @IBOutlet weak var rango: UILabel!
     @IBOutlet weak var rol: UILabel!
     @IBOutlet weak var discord: UILabel!
     @IBOutlet weak var pp: UIImageView!
+    var urlPhoto:String?
     var user: Usuario?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        storage.child("images/luisoc@gmail.com.png").downloadURL(completion: {url, error in
+//            guard let url = url , error == nil else{
+//                return
+//            }
+//            let task  = URLSession.shared.dataTask(with: url, completionHandler: {data,_ , error in
+//                         guard let data = data , error == nil else{
+//                               return
+//                           }
+//                            print(url)
+//                          let image = UIImage(data:data)
+//                          self.pp.image = image
+//                       })
+//            task.resume()
+//           
+//        })
+       // print(urlPhoto)
         usuario.text = user?.usuario
         rango.text = user?.rango
         rol.text = "Sage"

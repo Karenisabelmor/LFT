@@ -90,6 +90,17 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 print("Failed to upload")
                 return
             }
+            self.storage.child("images/"+self.email.text!+".png").downloadURL(completion: {url, error in
+                guard let url = url , error == nil else{
+                    return
+                }
+                let urlString = url.absoluteString
+                UserDefaults.standard.set(urlString, forKey: "url")
+            })
+            
+            
+            
+            
         })
         picker.dismiss(animated: true, completion: nil)
     }

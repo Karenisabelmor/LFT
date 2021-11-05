@@ -8,8 +8,9 @@
 import UIKit
 import Firebase
 class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, UISearchResultsUpdating{
-    
+    let db = Firestore.firestore()
     var datos = [Usuario]()
+    let user = Auth.auth().currentUser
     var controlador = UsuarioControlador()
     @IBOutlet weak var friendsList: UITableView!
     var datosFiltrados = [Usuario]()
@@ -80,8 +81,51 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
         cell.discord.text = datosFiltrados[indexPath.row].discord
         return cell
     }
-   
-
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            var newFriendsList:[String]
+            newFriendsList = []
+            for amigos in datosFiltrados{
+                newFriendsList.append(amigos.email)
+            }
+            newFriendsList =  newFriendsList.filter{$0 != datosFiltrados[indexPath.row].email}
+            let email = user!.email
+            let usuario = db.collection("usuarios").document(email!)
+            usuario.updateData([
+                "amigos": newFriendsList
+            ]) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                }
+                else{
+                    print("Agregado")
+                }
+            }
+            let usuarioBorrado = db.collection("usuarios").document(datosFiltrados[indexPath.row].email)
+            var usuarioBorradoFriendsList = datosFiltrados[indexPath.row].amigos
+            usuarioBorradoFriendsList =  usuarioBorradoFriendsList.filter{$0 != email!}
+            usuarioBorrado.updateData([
+                "amigos": usuarioBorradoFriendsList
+            ]) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                }
+                else{
+                    print("Agregado")
+                }
+            }
+            datosFiltrados.remove(at: indexPath.row)
+            friendsList.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+    }
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
     // MARK: - Navigation
 

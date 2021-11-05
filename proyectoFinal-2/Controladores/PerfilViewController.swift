@@ -21,6 +21,17 @@ class PerfilViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
+//                  let url = URL(string: urlString) else{
+//                      return
+//            }
+//            URLSession.shared.dataTask(with: url, completionHandler: {data,_ , error in
+//                guard let data = data , error == nil else{
+//                    return
+//                }
+//                let image = UIImage(data:data)
+//                self.pp.image = image
+//            })
         let email = user!.email
         let usuario = db.collection("usuarios").document(email!)
         usuario.getDocument{(document,error) in
