@@ -9,5 +9,5 @@ target 'proyectoFinal-2' do
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
     pod 'Firebase/Storage'
-
+    pod 'SideMenu'
 end

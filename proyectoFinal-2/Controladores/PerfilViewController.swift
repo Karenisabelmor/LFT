@@ -7,9 +7,9 @@
 
 import UIKit
 import Firebase
-
+import SideMenu
 class PerfilViewController: UIViewController {
-
+    var menu: SideMenuNavigationController?
     let db = Firestore.firestore()
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var rango: UILabel!
@@ -20,8 +20,7 @@ class PerfilViewController: UIViewController {
     let user = Auth.auth().currentUser
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-//        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
+        super.viewDidLoad()//        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
 //                  let url = URL(string: urlString) else{
 //                      return
 //            }
@@ -32,6 +31,13 @@ class PerfilViewController: UIViewController {
 //                let image = UIImage(data:data)
 //                self.pp.image = image
 //            })
+        navigationItem.hidesBackButton = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add , target: self, action: #selector(leftHandAction))
+
+        menu = SideMenuNavigationController(rootViewController: MenuListController())
+        menu?.leftSide = true
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
         let email = user!.email
         let usuario = db.collection("usuarios").document(email!)
         usuario.getDocument{(document,error) in
@@ -42,6 +48,7 @@ class PerfilViewController: UIViewController {
                 self.rol.text = "Sage"
                 self.discord.text = datosUsuario.discord
                 self.pp.image = UIImage.init(named: "LFT.png")
+                self.navigationItem.title = datosUsuario.usuario
             }
             
         }
@@ -60,5 +67,8 @@ class PerfilViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @objc
+    func leftHandAction() {
+        present(menu!, animated: true)
+    }
 }

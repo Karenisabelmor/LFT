@@ -6,8 +6,9 @@
 //
 
 import UIKit
-
+import SideMenu
 class AgregarAmigosViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UISearchResultsUpdating {
+    var menu: SideMenuNavigationController?
     var datos = [Usuario]()
     @IBOutlet weak var agregar: UITableView!
     var datosFiltrados = [Usuario]()
@@ -28,6 +29,14 @@ class AgregarAmigosViewController: UIViewController,UITableViewDelegate, UITable
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
+        navigationItem.title = "Amigos"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(leftHandAction))
+
+        menu = SideMenuNavigationController(rootViewController: MenuListController())
+        menu?.leftSide = true
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
         agregar.dataSource = self
         controladorA.agregarAmigos{ (resultado) in
             switch resultado{
@@ -98,4 +107,9 @@ func ReloadTable() {
     }
     self.agregar.reloadData()
 }
+
+    @objc
+    func leftHandAction() {
+        present(menu!, animated: true)
+    }
 }

@@ -7,7 +7,9 @@
 
 import UIKit
 import Firebase
+import SideMenu
 class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, UISearchResultsUpdating{
+    var menu: SideMenuNavigationController?
     let db = Firestore.firestore()
     var datos = [Usuario]()
     let user = Auth.auth().currentUser
@@ -39,6 +41,14 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        navigationItem.hidesBackButton = true
+        navigationItem.title = "Amigos"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(leftHandAction))
+
+        menu = SideMenuNavigationController(rootViewController: MenuListController())
+        menu?.leftSide = true
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
         friendsList.dataSource = self
         controlador.fetchFriends{ (resultado) in
             switch resultado{
@@ -139,6 +149,9 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
             siguiente.user = datosFiltrados[indice!]
         
     }
-    
-
+    @objc
+    func leftHandAction() {
+        present(menu!, animated: true)
+    }
 }
+

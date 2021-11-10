@@ -6,8 +6,9 @@
 //
 
 import UIKit
-
+import SideMenu
 class InvitacionesViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UISearchResultsUpdating {
+    var menu: SideMenuNavigationController?
     var datos = [Usuario]()
     var controlador = UsuarioControlador()
     var datosFiltrados = [Usuario]()
@@ -37,6 +38,14 @@ class InvitacionesViewController: UIViewController,UITableViewDelegate, UITableV
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
+        navigationItem.title = "Solicitudes"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(leftHandAction))
+
+        menu = SideMenuNavigationController(rootViewController: MenuListController())
+        menu?.leftSide = true
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
         invitaciones.dataSource = self
         controlador.fetchInvitaciones{ (resultado) in
             switch resultado{
@@ -100,4 +109,8 @@ func requestReloadTable() {
     }
     self.invitaciones.reloadData()
 }
+    @objc
+    func leftHandAction() {
+        present(menu!, animated: true)
+    }
 }

@@ -1,22 +1,20 @@
 //
-//  ConfiguracionViewController.swift
+//  SideMenuViewController.swift
 //  proyectoFinal-2
 //
-//  Created by Luis Alcantara on 31/10/21.
+//  Created by Luis Alcantara on 09/11/21.
 //
-
-import UIKit
-import Firebase
 import SideMenu
-class ConfiguracionViewController: UIViewController {
+import UIKit
+
+class SideMenuViewController: UIViewController {
     var menu: SideMenuNavigationController?
+    var controlador = MenuListController()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        navigationItem.title = "Solicitudes"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(leftHandAction))
-
-        menu = SideMenuNavigationController(rootViewController: MenuListController())
+        
+        menu = SideMenuNavigationController(rootViewController: controlador)
         menu?.leftSide = true
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
@@ -24,15 +22,6 @@ class ConfiguracionViewController: UIViewController {
     }
     
 
-    @IBAction func signOut(_ sender: UIButton) {
-            let firebaseAuth = Auth.auth()
-            do {
-              try firebaseAuth.signOut()
-                navigationController?.popToRootViewController(animated: true)
-            } catch let signOutError as NSError {
-              print("Error signing out: %@", signOutError)
-            }
-    }
     /*
     // MARK: - Navigation
 
@@ -42,8 +31,9 @@ class ConfiguracionViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @objc
-    func leftHandAction() {
+    @IBAction func didTapMenu() {
         present(menu!, animated: true)
     }
+    
 }
+
