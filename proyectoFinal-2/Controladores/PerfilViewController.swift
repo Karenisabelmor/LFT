@@ -22,14 +22,17 @@ class PerfilViewController: UIViewController {
     @IBOutlet weak var pp: UIImageView!
     @IBOutlet weak var horario: UILabel!
     @IBOutlet weak var mapa: MKMapView!
+    @IBOutlet weak var tabla: UIImageView!
     let user = Auth.auth().currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let imagePath = "images/\(user!.email!).png"
+        let tablePath = "tablas/\(user!.email!).png"
         let storage = Storage.storage()
         let storageRef = storage.reference()
         let ref = storageRef.child(imagePath)
+        let ref2 = storageRef.child(tablePath)
         navigationItem.hidesBackButton = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add , target: self, action: #selector(leftHandAction))
 
@@ -51,6 +54,7 @@ class PerfilViewController: UIViewController {
                         let pin = MKPointAnnotation()
                         pin.coordinate = centro
                         pin.title = datosUsuario.pais
+                        self.mapa.addAnnotation(pin)
                     case .failure(let error):print("error")
                     }
                 }
@@ -59,6 +63,7 @@ class PerfilViewController: UIViewController {
                 self.rol.text = datosUsuario.rol
                 self.discord.text = datosUsuario.discord
                 self.pp.sd_setImage(with: ref)
+                self.tabla.sd_setImage(with: ref2)
                 self.navigationItem.title = datosUsuario.usuario
                 self.horario.text = "Horario: \(datosUsuario.horario)"
             }

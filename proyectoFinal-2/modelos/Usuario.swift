@@ -11,19 +11,17 @@ struct Usuario: Decodable{
     var email:String
     var idJuego:String
     var pais:String
-    var password:String
     var rango:String
     var usuario:String
     var id:String
     var rol:String
     var horario:String
     var amigos:[String]
-    init(discord:String,email:String,idJuego:String,pais:String,password:String,rango:String,usuario:String,horario:String, rol:String){
+    init(discord:String,email:String,idJuego:String,pais:String,rango:String,usuario:String,horario:String, rol:String){
         self.discord = discord
         self.email = email
         self.idJuego = idJuego
         self.pais = pais
-        self.password = password
         self.rango = rango
         self.rol = rol
         self.horario = horario
@@ -38,18 +36,16 @@ struct Usuario: Decodable{
         self.pais = ""
         self.rol = ""
         self.horario = ""
-        self.password = ""
         self.rango = ""
         self.usuario = ""
         self.id = ""
         self.amigos = []
     }
-    init(discord:String,email:String,idJuego:String,pais:String,password:String,rango:String,usuario:String,id:String,amigos:[String],horario:String, rol:String){
+    init(discord:String,email:String,idJuego:String,pais:String,rango:String,usuario:String,id:String,amigos:[String],horario:String, rol:String){
         self.discord = discord
         self.email = email
         self.idJuego = idJuego
         self.pais = pais
-        self.password = password
         self.rango = rango
         self.usuario = usuario
         self.id = id
@@ -62,7 +58,6 @@ struct Usuario: Decodable{
         self.email = d.get("email") as? String ?? ""
         self.idJuego = d.get("idJuego") as? String ?? ""
         self.pais = d.get("pais") as? String ?? ""
-        self.password = d.get("password") as? String ?? ""
         self.rango = d.get("rango") as? String ?? ""
         self.usuario = d.get("usuario") as? String ?? ""
         self.id = d.documentID

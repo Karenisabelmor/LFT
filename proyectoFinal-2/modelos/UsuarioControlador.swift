@@ -15,7 +15,6 @@ class UsuarioControlador{
             "email": nuevoUsuario.email,
             "idJuego": nuevoUsuario.idJuego,
             "pais": nuevoUsuario.pais,
-            "password": nuevoUsuario.password,
             "rango": nuevoUsuario.rango,
             "usuario": nuevoUsuario.usuario,
             "amigos": [],

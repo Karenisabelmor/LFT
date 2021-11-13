@@ -11,6 +11,7 @@ import FirebaseStorage
 class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private let storage = Storage.storage().reference()
     var controlador = UsuarioControlador()
+    var type:String = ""
     @IBOutlet weak var Discord: UITextField!
     @IBOutlet weak var rango: UITextField!
     @IBOutlet weak var idJuego: UITextField!
@@ -35,7 +36,7 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
                }
                 else
                 {
-                    let nuevoUsuario = Usuario(discord: self.Discord.text!, email: email, idJuego: self.idJuego.text!, pais: self.pais.text!, password: password ,rango: self.rango.text!, usuario: self.usuario.text!,  horario:self.horario.text! ,rol:self.rol.text!)
+                    let nuevoUsuario = Usuario(discord: self.Discord.text!, email: email, idJuego: self.idJuego.text!, pais: self.pais.text! ,rango: self.rango.text!, usuario: self.usuario.text!,  horario:self.horario.text! ,rol:self.rol.text!)
                     self.controlador.addUsuario(nuevoUsuario: nuevoUsuario){(resultado) in
                         switch resultado{
                         case .failure(let error):
@@ -68,16 +69,23 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.performSegue(withIdentifier: "toSignIn", sender: self)
     }
     @IBAction func uploadProfilePicture(_ sender: UIButton) {
+        type = "images"
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.delegate = self
         picker.allowsEditing = true
         present(picker,animated: true)
-        
-        
     }
     
-   
+    @IBAction func uploadTable(_ sender: UIButton) {
+        type = "tablas"
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker,animated: true)
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{
             return
@@ -87,7 +95,7 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
             return
         }
        
-        storage.child("images/"+email.text!+".png").putData(imageData, metadata: nil, completion: {_, error in
+        storage.child("\(type)/"+email.text!+".png").putData(imageData, metadata: nil, completion: {_, error in
             guard error == nil else{
                 print("Failed to upload")
                 return
@@ -99,10 +107,6 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 let urlString = url.absoluteString
                 UserDefaults.standard.set(urlString, forKey: "url")
             })
-            
-            
-            
-            
         })
         picker.dismiss(animated: true, completion: nil)
     }
@@ -111,14 +115,5 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         picker.dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

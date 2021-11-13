@@ -32,7 +32,7 @@ class AgregarAmigosViewController: UIViewController,UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        navigationItem.title = "Amigos"
+        navigationItem.title = "Agergar Amigos"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(leftHandAction))
 
         menu = SideMenuNavigationController(rootViewController: MenuListController())
