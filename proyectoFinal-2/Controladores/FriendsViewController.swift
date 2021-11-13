@@ -8,6 +8,8 @@
 import UIKit
 import Firebase
 import SideMenu
+import FirebaseStorage
+import FirebaseStorageUI
 class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, UISearchResultsUpdating{
     var menu: SideMenuNavigationController?
     let db = Firestore.firestore()
@@ -84,9 +86,14 @@ class FriendsViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let imagePath = "images/\(datosFiltrados[indexPath.row].email).png"
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let ref = storageRef.child(imagePath)
         let cell = friendsList.dequeueReusableCell(withIdentifier: "zelda") as! AmigosTableViewCell
+        
         cell.usuario.text =  datosFiltrados[indexPath.row].usuario
-        cell.profilePicture.image = UIImage(named: "LFT.png")
+        cell.profilePicture.sd_setImage(with: ref)
         cell.rango.text = datosFiltrados[indexPath.row].rango
         cell.discord.text = datosFiltrados[indexPath.row].discord
         return cell

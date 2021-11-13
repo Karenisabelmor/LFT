@@ -18,7 +18,10 @@ class UsuarioControlador{
             "password": nuevoUsuario.password,
             "rango": nuevoUsuario.rango,
             "usuario": nuevoUsuario.usuario,
-            "amigos": []
+            "amigos": [],
+            "rol":nuevoUsuario.rol,
+            "horario": nuevoUsuario.horario
+            
         ]) { err in
             if let err = err {
                 completion(.failure(err))
@@ -66,6 +69,7 @@ class UsuarioControlador{
             }
         }
     }
+   
     
     func fetchInvitaciones(completion: @escaping (Result<[Usuario],Error>)->Void){
         var listaUsuarios = [Usuario]()

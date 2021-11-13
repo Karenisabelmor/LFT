@@ -16,6 +16,8 @@
 		B3FCE70D27237FD400D0D040 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3FCE70C27237FD400D0D040 /* Assets.xcassets */; };
 		B3FCE71027237FD400D0D040 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3FCE70E27237FD400D0D040 /* LaunchScreen.storyboard */; };
 		BF7D2CD9794B434562C6683B /* Pods_proyectoFinal_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2CBE4A7C616B0EC801B8D17 /* Pods_proyectoFinal_2.framework */; };
+		D145B2D1273F5D8C00E2C7F7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145B2D0273F5D8C00E2C7F7 /* Location.swift */; };
+		D145B2D3273F5DA700E2C7F7 /* LocationControlador.swift in Sources */ = {isa = PBXBuildFile; fileRef = D145B2D2273F5DA700E2C7F7 /* LocationControlador.swift */; };
 		D1645727272A271E00956D88 /* AmigosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1645726272A271E00956D88 /* AmigosTableViewCell.swift */; };
 		D1A4E45A272C660100C93B90 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A4E459272C660100C93B90 /* MenuViewController.swift */; };
 		D1A4E45C272C784E00C93B90 /* InvitacionesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A4E45B272C784E00C93B90 /* InvitacionesViewController.swift */; };
@@ -48,6 +50,8 @@
 		B3FCE70C27237FD400D0D040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3FCE70F27237FD400D0D040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3FCE71127237FD400D0D040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D145B2D0273F5D8C00E2C7F7 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		D145B2D2273F5DA700E2C7F7 /* LocationControlador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationControlador.swift; sourceTree = "<group>"; };
 		D1645726272A271E00956D88 /* AmigosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmigosTableViewCell.swift; sourceTree = "<group>"; };
 		D1A4E459272C660100C93B90 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D1A4E45B272C784E00C93B90 /* InvitacionesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitacionesViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				D1A4E45F272C8ABC00C93B90 /* Invitaciones.swift */,
 				D1A4E46B272CCF6400C93B90 /* Agregar.swift */,
 				D1C3AC6C273B5E37008A43F8 /* MenuListConrtoller.swift */,
+				D145B2D0273F5D8C00E2C7F7 /* Location.swift */,
+				D145B2D2273F5DA700E2C7F7 /* LocationControlador.swift */,
 			);
 			path = modelos;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 				D1C58D4B2725EA42003E7AEE /* LoginViewController.swift in Sources */,
 				D1A4E46C272CCF6400C93B90 /* Agregar.swift in Sources */,
 				D1A4E45A272C660100C93B90 /* MenuViewController.swift in Sources */,
+				D145B2D3273F5DA700E2C7F7 /* LocationControlador.swift in Sources */,
 				D1A4E45C272C784E00C93B90 /* InvitacionesViewController.swift in Sources */,
 				D1A4E468272CCA9400C93B90 /* AgregarTableViewCell.swift in Sources */,
 				D1C27032272F4D0200A890B3 /* ConfiguracionViewController.swift in Sources */,
@@ -299,6 +306,7 @@
 				D1A4E45E272C786E00C93B90 /* InvitacionesTableViewCell.swift in Sources */,
 				D1A4E46A272CCAA800C93B90 /* AgregarAmigosViewController.swift in Sources */,
 				D1C58D552725FC35003E7AEE /* UsuarioControlador.swift in Sources */,
+				D145B2D1273F5D8C00E2C7F7 /* Location.swift in Sources */,
 				D1C58D532725F9F6003E7AEE /* Usuario.swift in Sources */,
 				D1C3AC6D273B5E37008A43F8 /* MenuListConrtoller.swift in Sources */,
 				8D80BBB5272F78EB00AE7CEA /* PerfilViewController.swift in Sources */,

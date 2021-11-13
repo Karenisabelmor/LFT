@@ -18,6 +18,8 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var usuario: UITextField!
+    @IBOutlet weak var rol: UITextField!
+    @IBOutlet weak var horario: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +35,7 @@ class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UI
                }
                 else
                 {
-                    let nuevoUsuario = Usuario(discord: self.Discord.text!, email: email, idJuego: self.idJuego.text!, pais: self.pais.text!, password: password ,rango: self.rango.text!, usuario: self.usuario.text!)
+                    let nuevoUsuario = Usuario(discord: self.Discord.text!, email: email, idJuego: self.idJuego.text!, pais: self.pais.text!, password: password ,rango: self.rango.text!, usuario: self.usuario.text!,  horario:self.horario.text! ,rol:self.rol.text!)
                     self.controlador.addUsuario(nuevoUsuario: nuevoUsuario){(resultado) in
                         switch resultado{
                         case .failure(let error):

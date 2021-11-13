@@ -7,6 +7,8 @@
 
 import UIKit
 import SideMenu
+import FirebaseStorage
+import FirebaseStorageUI
 class AgregarAmigosViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UISearchResultsUpdating {
     var menu: SideMenuNavigationController?
     var datos = [Usuario]()
@@ -78,9 +80,13 @@ class AgregarAmigosViewController: UIViewController,UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let imagePath = "images/\(datosFiltrados[indexPath.row].email).png"
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let ref = storageRef.child(imagePath)
         let cell = agregar.dequeueReusableCell(withIdentifier: "agregarAmigo") as! AgregarTableViewCell
         cell.usuario.text =  datosFiltrados[indexPath.row].usuario
-        cell.profilePicture.image = UIImage(named: "LFT.png")
+        cell.profilePicture.sd_setImage(with: ref)
         cell.rango.text =  datosFiltrados[indexPath.row].rango
         return cell
     }

@@ -7,6 +7,8 @@
 
 import UIKit
 import SideMenu
+import FirebaseStorage
+import FirebaseStorageUI
 class InvitacionesViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,UISearchResultsUpdating {
     var menu: SideMenuNavigationController?
     var datos = [Usuario]()
@@ -80,9 +82,13 @@ class InvitacionesViewController: UIViewController,UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let imagePath = "images/\(datosFiltrados[indexPath.row].email).png"
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let ref = storageRef.child(imagePath)
         let cell = invitaciones.dequeueReusableCell(withIdentifier: "invitacion") as! InvitacionesTableViewCell
         cell.username.text =  datosFiltrados[indexPath.row].usuario
-        cell.profilePicture.image = UIImage(named: "LFT.png")
+        cell.profilePicture.sd_setImage(with: ref)
         cell.rango.text = datosFiltrados[indexPath.row].rango
         cell.discord.text = datosFiltrados[indexPath.row].discord
         cell.parentDelegate = self
