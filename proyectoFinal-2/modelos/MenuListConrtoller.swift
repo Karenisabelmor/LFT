@@ -6,7 +6,7 @@
 //
 import UIKit
 class MenuListController : UITableViewController{
-    var items = ["Amigos","Invitaciones", "Tu perfil", "Agregar Amigos","Configuracion"]
+    var items = ["Amigos","Invitaciones", "Tu perfil", "Agregar Amigos","Agentes", "Configuracion"]
     let darkColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
     override func viewDidLoad() {
         super.viewDidLoad()

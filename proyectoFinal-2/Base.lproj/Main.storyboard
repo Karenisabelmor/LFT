@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xvb-RE-ZTP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xvb-RE-ZTP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -248,7 +247,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="agregarAmigo" rowHeight="135" id="nM4-Tz-53Q" customClass="AgregarTableViewCell" customModule="proyectoFinal_2" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="135"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nM4-Tz-53Q" id="W0g-6W-ipe">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
@@ -333,7 +332,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="20" reuseIdentifier="zelda" rowHeight="135" id="1tw-0F-aYn" customClass="AmigosTableViewCell" customModule="proyectoFinal_2" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="135"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1tw-0F-aYn" id="elz-kB-gdI">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
@@ -560,7 +559,6 @@
                                 <rect key="frame" x="121" y="723" width="171" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Agrega tabla"/>
                                 <connections>
                                     <action selector="uploadTable:" destination="Qjy-Pv-Jdj" eventType="touchUpInside" id="7YP-eP-fvN"/>
                                 </connections>
@@ -611,7 +609,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="invitacion" rowHeight="135" id="1An-8J-j67" customClass="InvitacionesTableViewCell" customModule="proyectoFinal_2" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="135"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1An-8J-j67" id="KIl-nu-FrM">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
@@ -861,6 +859,62 @@
             </objects>
             <point key="canvasLocation" x="4002.898550724638" y="-133.25892857142856"/>
         </scene>
+        <!--Mlm Agentes View Controller-->
+        <scene sceneID="0M5-gO-Xut">
+            <objects>
+                <viewController storyboardIdentifier="Agentes" id="NB2-M5-Ayl" customClass="MlmAgentesViewController" customModule="proyectoFinal_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uXA-sd-vhe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfS-DO-vdT">
+                                <rect key="frame" x="49" y="481" width="44" height="30"/>
+                                <state key="normal" title="Álbum"/>
+                                <connections>
+                                    <action selector="album" destination="NB2-M5-Ayl" eventType="touchUpInside" id="nV7-cF-xXM"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSA-dY-AVk">
+                                <rect key="frame" x="20" y="44" width="374" height="381"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ao8-F6-4FO">
+                                <rect key="frame" x="143" y="619.5" width="128" height="30"/>
+                                <state key="normal" title="¿Qué es esta foto?"/>
+                                <connections>
+                                    <action selector="ejecutarML" destination="NB2-M5-Ayl" eventType="touchUpInside" id="77c-EC-4pJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Identificacion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMn-kN-CHt">
+                                <rect key="frame" x="126" y="553" width="138" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="o1k-8U-JBg"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bfS-DO-vdT" firstAttribute="leading" secondItem="o1k-8U-JBg" secondAttribute="leading" constant="49" id="1GB-Ot-zEf"/>
+                            <constraint firstItem="o1k-8U-JBg" firstAttribute="trailing" secondItem="cMn-kN-CHt" secondAttribute="trailing" constant="156" id="BsQ-pE-wzT"/>
+                            <constraint firstItem="bfS-DO-vdT" firstAttribute="top" secondItem="mSA-dY-AVk" secondAttribute="bottom" constant="56" id="Hza-Mn-PqV"/>
+                            <constraint firstItem="cMn-kN-CHt" firstAttribute="top" secondItem="bfS-DO-vdT" secondAttribute="bottom" constant="41.5" id="J4O-Or-JgR"/>
+                            <constraint firstItem="cMn-kN-CHt" firstAttribute="leading" secondItem="o1k-8U-JBg" secondAttribute="leading" constant="156" id="N2x-Zp-KCw"/>
+                            <constraint firstItem="Ao8-F6-4FO" firstAttribute="top" secondItem="cMn-kN-CHt" secondAttribute="bottom" constant="46" id="S2e-mn-Lfw"/>
+                            <constraint firstItem="mSA-dY-AVk" firstAttribute="top" secondItem="o1k-8U-JBg" secondAttribute="top" id="XFf-dh-vfU"/>
+                            <constraint firstItem="mSA-dY-AVk" firstAttribute="trailing" secondItem="uXA-sd-vhe" secondAttribute="trailingMargin" id="Y0t-OX-y3e"/>
+                            <constraint firstItem="mSA-dY-AVk" firstAttribute="centerX" secondItem="Ao8-F6-4FO" secondAttribute="centerX" id="m8S-O3-3X8"/>
+                            <constraint firstItem="mSA-dY-AVk" firstAttribute="leading" secondItem="uXA-sd-vhe" secondAttribute="leadingMargin" id="nO9-NP-llZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fotoVista" destination="mSA-dY-AVk" id="D2D-X0-Eff"/>
+                        <outlet property="identificacionImagen" destination="cMn-kN-CHt" id="2vW-4C-nmf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4wS-WP-35f" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5131.884057971015" y="-133.25892857142856"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="IIJ-O1-lgI"/>
@@ -874,6 +928,9 @@
         <image name="person.fill.checkmark" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
