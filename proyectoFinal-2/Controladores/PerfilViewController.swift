@@ -11,10 +11,19 @@ import SideMenu
 import FirebaseStorage
 import FirebaseStorageUI
 import MapKit
+import FirebaseDatabase
+
 class PerfilViewController: UIViewController {
     var menu: SideMenuNavigationController?
     var controladorMapa = LocationControlador()
     let db = Firestore.firestore()
+    
+    var ref: DatabaseReference!
+
+    
+    
+    
+    
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var rango: UILabel!
     @IBOutlet weak var rol: UILabel!
@@ -66,6 +75,22 @@ class PerfilViewController: UIViewController {
                 self.tabla.sd_setImage(with: ref2)
                 self.navigationItem.title = datosUsuario.usuario
                 self.horario.text = "Horario: \(datosUsuario.horario)"
+                
+                
+                self.ref = Database.database().reference()
+                self.ref.child("Usuarios").setValue(["usuario": String(datosUsuario.usuario),  "discord": String(datosUsuario.discord), "rango": String(datosUsuario.rango)]) {
+                              (error:Error?, ref:DatabaseReference) in
+                              if let error = error {
+                                print("Data could not be saved: \(error).")
+                              } else {
+                                print("Data saved successfully!")
+                              }
+                            }
+                
+                
+                
+                
+                
             }
             
         }

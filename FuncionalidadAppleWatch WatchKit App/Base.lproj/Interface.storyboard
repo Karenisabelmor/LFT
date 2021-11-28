@@ -4,14 +4,62 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="17500"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="FuncionalidadAppleWatch_WatchKit_App" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="FuncionalidadAppleWatch_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" id="Mi2-it-WWx">
+                            <items>
+                                <tableRow identifier="renglones" id="8kD-Eh-iat" customClass="ControladorRenglon" customModule="FuncionalidadAppleWatch_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="ewd-z9-o4l">
+                                        <items>
+                                            <label width="135" height="100" alignment="center" verticalAlignment="center" text="Usuario" id="FjT-Wf-4gB"/>
+                                        </items>
+                                        <connections>
+                                            <segue destination="OMl-xx-AzB" kind="push" id="5gA-XO-22H"/>
+                                        </connections>
+                                    </group>
+                                    <connections>
+                                        <outlet property="etiquetaAmix" destination="FjT-Wf-4gB" id="Ti7-dT-o3Y"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="laTabla" destination="Mi2-it-WWx" id="6Ct-jc-kA1"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="391" y="130"/>
+            <point key="canvasLocation" x="-25" y="170"/>
+        </scene>
+        <!--Detalle Interface Controller-->
+        <scene sceneID="NfO-u1-9iW">
+            <objects>
+                <controller id="OMl-xx-AzB" customClass="DetalleInterfaceController" customModule="FuncionalidadAppleWatch_WatchKit_Extension">
+                    <items>
+                        <label width="1" alignment="center" text="Label" textAlignment="center" id="nRQ-zl-jZx">
+                            <color key="textColor" name="AccentColor"/>
+                        </label>
+                        <separator alignment="center" id="Xoo-yQ-YVb"/>
+                        <label alignment="center" verticalAlignment="center" text="Label" id="uaj-wt-EJv"/>
+                    </items>
+                    <connections>
+                        <outlet property="etiquetaDiscord" destination="uaj-wt-EJv" id="Wq9-wQ-R6E"/>
+                        <outlet property="etiquetaUsuario" destination="nRQ-zl-jZx" id="DVW-IY-XrK"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="349" y="170"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
