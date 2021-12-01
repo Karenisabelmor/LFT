@@ -13,7 +13,7 @@ class ConfiguracionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        navigationItem.title = "Solicitudes"
+        navigationItem.title = "Configuración"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(leftHandAction))
 
         menu = SideMenuNavigationController(rootViewController: MenuListController())

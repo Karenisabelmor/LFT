@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  fotosS4
 //
-//  Created by Rodrigo on 11/7/17.
+//  Created by Rodrigo y los regaños de Karen on 11/7/17.
 //
 //
 

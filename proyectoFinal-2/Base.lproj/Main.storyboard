@@ -558,7 +558,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXy-w2-A2i">
                                 <rect key="frame" x="121" y="723" width="171" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Selecciona Destacado"/>
                                 <connections>
                                     <action selector="uploadTable:" destination="Qjy-Pv-Jdj" eventType="touchUpInside" id="7YP-eP-fvN"/>
                                 </connections>
@@ -867,25 +867,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfS-DO-vdT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfS-DO-vdT">
                                 <rect key="frame" x="49" y="481" width="44" height="30"/>
                                 <state key="normal" title="Álbum"/>
                                 <connections>
                                     <action selector="album" destination="NB2-M5-Ayl" eventType="touchUpInside" id="nV7-cF-xXM"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSA-dY-AVk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mSA-dY-AVk">
                                 <rect key="frame" x="20" y="44" width="374" height="381"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ao8-F6-4FO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ao8-F6-4FO">
                                 <rect key="frame" x="143" y="619.5" width="128" height="30"/>
                                 <state key="normal" title="¿Qué es esta foto?"/>
                                 <connections>
                                     <action selector="ejecutarML" destination="NB2-M5-Ayl" eventType="touchUpInside" id="77c-EC-4pJ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Identificacion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMn-kN-CHt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Identificacion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMn-kN-CHt">
                                 <rect key="frame" x="126" y="553" width="138" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="cu9-SA-dcS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
@@ -900,6 +903,7 @@
                             <constraint firstItem="cMn-kN-CHt" firstAttribute="top" secondItem="bfS-DO-vdT" secondAttribute="bottom" constant="41.5" id="J4O-Or-JgR"/>
                             <constraint firstItem="cMn-kN-CHt" firstAttribute="leading" secondItem="o1k-8U-JBg" secondAttribute="leading" constant="156" id="N2x-Zp-KCw"/>
                             <constraint firstItem="Ao8-F6-4FO" firstAttribute="top" secondItem="cMn-kN-CHt" secondAttribute="bottom" constant="46" id="S2e-mn-Lfw"/>
+                            <constraint firstItem="o1k-8U-JBg" firstAttribute="bottom" secondItem="Ao8-F6-4FO" secondAttribute="bottom" constant="212.5" id="UUu-nk-VCn"/>
                             <constraint firstItem="mSA-dY-AVk" firstAttribute="top" secondItem="o1k-8U-JBg" secondAttribute="top" id="XFf-dh-vfU"/>
                             <constraint firstItem="mSA-dY-AVk" firstAttribute="trailing" secondItem="uXA-sd-vhe" secondAttribute="trailingMargin" id="Y0t-OX-y3e"/>
                             <constraint firstItem="mSA-dY-AVk" firstAttribute="centerX" secondItem="Ao8-F6-4FO" secondAttribute="centerX" id="m8S-O3-3X8"/>
@@ -918,7 +922,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="IIJ-O1-lgI"/>
-        <segue reference="abw-aG-TlI"/>
+        <segue reference="yqP-RE-TYW"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="LFT" width="741" height="742"/>

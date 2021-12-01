@@ -78,7 +78,7 @@ class PerfilViewController: UIViewController {
                 
                 
                 self.ref = Database.database().reference()
-                self.ref.child("Usuarios").setValue(["usuario": String(datosUsuario.usuario),  "discord": String(datosUsuario.discord), "rango": String(datosUsuario.rango)]) {
+                self.ref.child("Usuarios").setValue(["Usuario": String(datosUsuario.usuario),  "Discord": String(datosUsuario.discord), "Rango": String(datosUsuario.rango)]) {
                               (error:Error?, ref:DatabaseReference) in
                               if let error = error {
                                 print("Data could not be saved: \(error).")
